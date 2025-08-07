@@ -1,0 +1,13 @@
+elasticsearch:
+  host: "localhost:9200"
+  access_logs_index: "access_logs"
+  employees_index: "employees"
+
+camera:
+  default_id: 0
+  resolution:
+    width: 1280
+    height: 720
+
+security:
+  min_confidence: 0.7

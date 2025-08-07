@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}Employee Management{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5>Employee Management</h5>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">
+            Add Employee
+        </button>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Photo</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="employees-table">
+                <!-- Filled by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Add Employee Modal -->
+<div class="modal fade" id="addEmployeeModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Register New Employee</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addEmployeeForm">
+                    <!-- Employee ID -->
+                    <div class="mb-3">
+                        <label for="empIdInput" class="form-label">Employee ID</label>
+                        <input type="text" 
+                               class="form-control" 
+                               id="empIdInput" 
+                               name="emp_id" 
+                               required 
+                               placeholder="Enter employee ID">
+                    </div>
+
+                    <!-- Employee Photo -->
+                    <div class="mb-3">
+                        <label for="employeePhoto" class="form-label">
+                            Employee Photo 
+                            <span class="text-muted float-end">(Required)</span>
+                        </label>
+                        <input type="file" 
+                               class="form-control" 
+                               id="employeePhoto" 
+                               name="photo" 
+                               required 
+                               accept="image/jpeg, image/png, image/webp">
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Add Employee</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/js/employees.js"></script>
+{% endblock %}
